@@ -1,14 +1,34 @@
 {
   "users": [
-  {
-    "id": 1,
-    "name": "shivanand"
-  },
-  {
-    "id": 2,
-    "name": "akash"
-  }
-],
+    {
+      "id": 1,
+      "name": "shivanand"
+    },
+    {
+      "id": 2,
+      "name": "akash"
+    },
+    {
+      "name": "Hazle",
+      "id": 3
+    },
+    {
+      "name": "Nicolette",
+      "id": 4
+    },
+    {
+      "name": "Elda",
+      "id": 5
+    },
+    {
+      "name": "Violette",
+      "id": 6
+    },
+    {
+      "name": "Ellie",
+      "id": 7
+    }
+  ],
   "albums": [],
   "photos": []
 }
