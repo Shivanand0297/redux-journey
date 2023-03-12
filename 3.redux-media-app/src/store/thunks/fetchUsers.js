@@ -4,8 +4,21 @@ import axios from "axios";
 
 export const fetchUsers = createAsyncThunk("user/fetch", async ()=>{
   const {data} = await axios.get("http://localhost:3005/users");
+  // DEV ONLY
+  await pause(1000) // PAUSING FOR 3000 MILISECONDS
   return data;
 })
+
+// Note: DEV ONLY
+
+const pause = (duration) =>{
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve("resolve")
+    }, duration)
+
+  })
+}
 
 // redux will automatically assing 3 properties to the fetchuser
 // fetchUser.pending === "user/fetch/pending"
