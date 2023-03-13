@@ -7,7 +7,9 @@ import { addUser, fetchUsers } from "../store";
 
 // importing skeleton
 import Skeleton from "./Skeleton";
-import List from "./List";
+
+// UserListItems component
+import UserListItems from "./UserListItems";
 
 // custom hook for fetching data
 // to keep track of loading users
@@ -66,7 +68,7 @@ const UserList = () => {
           <Skeleton times={9} size="h-6 w-full" />
         ) : (
           <>
-            {data && data.map((user) => <List key={user.id} user={user} />)}
+            {data && data.map((user) => <UserListItems key={user.id} user={user} />)}
             <p>{loadingUserError ? "Error Fetching data" : null}</p>
           </>
         )}

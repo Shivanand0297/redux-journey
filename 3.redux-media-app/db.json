@@ -1,16 +1,8 @@
 {
   "users": [
     {
-      "name": "Berry",
-      "id": 1
-    },
-    {
       "name": "Kaylin",
       "id": 2
-    },
-    {
-      "name": "Alice",
-      "id": 3
     },
     {
       "name": "Johann",
@@ -29,12 +21,16 @@
       "id": 7
     },
     {
-      "name": "Christine",
+      "name": "April",
       "id": 8
     },
     {
-      "name": "Consuelo",
+      "name": "Newton",
       "id": 9
+    },
+    {
+      "name": "General",
+      "id": 10
     }
   ],
   "albums": [],
