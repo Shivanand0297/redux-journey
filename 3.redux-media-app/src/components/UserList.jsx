@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // async thunk for fetching data
 import { addUser, fetchUsers } from "../store";
@@ -8,22 +8,23 @@ import { addUser, fetchUsers } from "../store";
 import Skeleton from "./Skeleton";
 import List from "./List";
 
+// custom hook for fetching data 
+// to keep track of loading users
+import useThunk from "../hooks/useThunk";
+
 const UserList = () => {
-  // to keep track of loading users
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUserError, setLoadingUserError] = useState(null);
-
+  const [ doFetchUsers, isLoadingUsers, loadingUserError ] =  useThunk(fetchUsers);
   // to keep track of creating user state
-  const [isCreatingUser, setIsCreatingUser] = useState(false);
-  const [creatingUserError, setCreatingUserError] = useState(null);
+  const [ doCreateUser, isCreatingUser, creatingUserError ] = useThunk(addUser);
 
-  const dispatch = useDispatch();
   const { data } = useSelector((state) => {
     return state.user;
   });
 
   useEffect(() => {
-    setIsLoadingUsers(true);
+    doFetchUsers();
+
+    /* setIsLoadingUsers(true);
     // dipatching action for making request
 
     // dispatch(fetchUsers()).then() this will call the then() whether the promise resolves or rejects
@@ -34,17 +35,12 @@ const UserList = () => {
 
     // Note: after making request DO NOT MAKE setIsLoadingUsers(false)
     // setIsLoadingUsers(false) NOPE!!!, because here async thunk dispatch() function is async is nature it will immediately setIsLoadingUsers to false
-
+ */
     // eslint-disable-next-line
-  }, []);
+  }, [doFetchUsers]);
 
   const handleAddUser = () => {
-    setIsCreatingUser(true);
-
-    dispatch(addUser())
-      .unwrap()
-      .catch((err) => setCreatingUserError(err))
-      .finally(() => setIsCreatingUser(false));
+    doCreateUser()
   };
 
   return (
