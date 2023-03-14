@@ -20,7 +20,7 @@ export const albumsApi = createApi({
             method: "GET",
           };
         },
-        providesTags: (result, error, user)=>{ //arg -> user, this way tags are generated automatically dynamically so that track them by providing id
+        providesTags: (result, error, user)=>{ //arg -> user, this way tags are generated automatically dynamically so that track them by providing id.
           return [ {type: "Album", id: user.id } ]
         },
       }),
