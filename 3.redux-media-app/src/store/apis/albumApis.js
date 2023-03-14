@@ -10,6 +10,9 @@ export const albumsApi = createApi({
   endpoints(builder) {  // always give endpoints
     return {
       fetchAlbums: builder.query({
+        providesTags: (result, error, user)=>{ //arg -> user, this way tags are generated automatically dynamically so that track them by providing id
+          return [ {type: "Album", id: user.id } ]
+        },
         query: (user) => {
           // goal of the query object it to tell how to make the request
           return {
@@ -21,12 +24,28 @@ export const albumsApi = createApi({
           };
         },
       }),
-      
+      addAlbum: builder.mutation({
+        // invalidatesTags: ["Albums"],  // this way there is no control over whose albums to mark invalidate to get updated data from the server
+
+        invalidatesTags: (result, error, user)=>{
+          return [ { type: "Album", id: user.id } ];
+        },
+        query: (user) =>{
+          return {
+            url: "/albums",
+            method: "POST",
+            body: {
+              userId: user.id,
+              title: faker.commerce.productName(),
+            }
+          }
+        }
+      })
     };
   },
 });
 
-export const { useFetchAlbumsQuery } = albumsApi; // next we need to connect our store with the automatically reacted reducer
+export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi; // next we need to connect our store with the automatically reacted reducer
 // to use this api we use albumsApi.useFetchAlbumsQuery()
 
 /***********************************************************************************************************
