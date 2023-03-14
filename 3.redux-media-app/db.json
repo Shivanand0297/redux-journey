@@ -31,8 +31,18 @@
     {
       "name": "General",
       "id": 10
+    },
+    {
+      "name": "Madisyn",
+      "id": 11
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 1,
+      "userId": 9,
+      "title": "Concert"
+    }
+  ],
   "photos": []
 }

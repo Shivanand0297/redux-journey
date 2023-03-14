@@ -1,6 +1,6 @@
 // this skeleton component will take a prop which will be equal to the times we want to render skeleton component
 
-const Skeleton = ({ times, size }) => {
+const Skeleton = ({ times, size="h-4 w-full" }) => {
   const boxes = Array(times)
     .fill(0)
     .map((_item, index) => (

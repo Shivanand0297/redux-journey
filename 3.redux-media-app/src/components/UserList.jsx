@@ -52,7 +52,7 @@ const UserList = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-2xl">Users</h1>
           <button
-            className="bg-blue-400 border rounded text-white px-2 py-[6px] text-sm disabled:cursor-not-allowed"
+            className="btn disabled:cursor-not-allowed"
             onClick={handleAddUser}
             disabled={isCreatingUser}
           >
