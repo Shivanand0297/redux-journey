@@ -40,12 +40,21 @@ export const albumsApi = createApi({
         invalidatesTags: (result, error, user)=>{
           return [ { type: "Album", id: user.id } ];
         },
+      }),
+
+      removeAlbum: builder.mutation({
+        query: (album) =>{
+          return {
+            url: `/albums/${album.id}`,
+            method: "DELETE",
+          }
+        }
       })
     };
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi; // next we need to connect our store with the automatically reacted reducer
+export const { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } = albumsApi; // next we need to connect our store with the automatically reacted reducer
 // to use this api we use albumsApi.useFetchAlbumsQuery()
 
 /***********************************************************************************************************

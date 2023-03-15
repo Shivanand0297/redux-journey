@@ -1,4 +1,5 @@
-import { useAddAlbumMutation, useFetchAlbumsQuery } from "../store";
+import { useAddAlbumMutation, useFetchAlbumsQuery, useRemoveAlbumMutation } from "../store";
+import AlbumListItem from "./AlbumListItem";
 import Button from "./Button";
 import ExpandablePanel from "./ExpandablePanel";
 import Skeleton from "./Skeleton";
@@ -11,7 +12,6 @@ const AlbumList = ({ user }) => {
 
   // hook for adding albums to a specific user
   const [ addAlbum, results ] = useAddAlbumMutation(user);
-  console.log(results)
   const handleAddAlbums = () =>{
     addAlbum(user)
     // right now the data is getting updated in db.json but it is not showing automatically on the screen in the album lists
@@ -43,13 +43,9 @@ const AlbumList = ({ user }) => {
         <Skeleton times={1} size="h-4 w-full" />
       ) : (
         <>
-          {data?.map((album) => {
-            const header = <div>{album.title}</div>;
-
-            return (
-              <ExpandablePanel header={header} key={album.id} >List of photos</ExpandablePanel>
-            );
-          })}
+          {data?.map((album) => (
+             <AlbumListItem album={album} key={album.id} />
+          ))}
         </>
       )}
     </div>
