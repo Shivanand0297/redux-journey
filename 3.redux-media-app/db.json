@@ -33,8 +33,12 @@
       "id": 10
     },
     {
-      "name": "Madisyn",
+      "name": "Asha",
       "id": 11
+    },
+    {
+      "name": "Deon",
+      "id": 12
     }
   ],
   "albums": [
@@ -102,6 +106,11 @@
       "userId": 6,
       "title": "Sleek Steel Chair",
       "id": 13
+    },
+    {
+      "userId": 10,
+      "title": "Small Cotton Shoes",
+      "id": 14
     }
   ],
   "photos": []

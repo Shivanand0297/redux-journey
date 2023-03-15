@@ -14,6 +14,7 @@ import UserListItems from "./UserListItems";
 // custom hook for fetching data
 // to keep track of loading users
 import useThunk from "../hooks/useThunk";
+import Button from "./Button";
 
 const UserList = () => {
   const [doFetchUsers, isLoadingUsers, loadingUserError] = useThunk(fetchUsers);
@@ -51,17 +52,13 @@ const UserList = () => {
       <div className="flex flex-col justify-start container mx-auto w-4/5 m-2">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl">Users</h1>
-          <button
-            className="btn disabled:cursor-not-allowed"
-            onClick={handleAddUser}
-            disabled={isCreatingUser}
+          <Button
+            onClickFunction={handleAddUser}
+            loading={isCreatingUser}
+
           >
-            {isCreatingUser ? (
-              <AiOutlineLoading3Quarters className="animate-spin text-white text-sm w-[70px] h-[20px]" />
-            ) : (
-              "+ Add User"
-            )}
-          </button>
+            + Add User
+          </Button>
           {creatingUserError && "error creating user"}
         </div>
         {isLoadingUsers ? (
