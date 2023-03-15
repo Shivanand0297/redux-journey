@@ -5,7 +5,7 @@ import ExpandablePanel from "./ExpandablePanel";
 import Skeleton from "./Skeleton";
 
 const AlbumList = ({ user }) => {
-  const { data, isLoading, error } = useFetchAlbumsQuery(user); //user argument is going into query() in the albumApi function. whenever album list is getting render  api request is going
+  const { data, isFetching, error } = useFetchAlbumsQuery(user); //user argument is going into query() in the albumApi function. whenever album list is getting render  api request is going
   // isLoading -> true only when fetching data for the first time.
   // isFetching -> true if currently loading data.
   // useFetchAlbumsQuery(user) -> this will only make one request no matter how many times the component renders
@@ -39,7 +39,7 @@ const AlbumList = ({ user }) => {
             + Add Albums
         </Button>
       </div>
-      {isLoading ? (
+      {isFetching ? (
         <Skeleton times={1} size="h-4 w-full" />
       ) : (
         <>

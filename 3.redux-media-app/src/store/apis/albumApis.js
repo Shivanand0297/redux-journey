@@ -21,7 +21,13 @@ export const albumsApi = createApi({
           };
         },
         providesTags: (result, error, user)=>{ //arg -> user, this way tags are generated automatically dynamically so that track them by providing id.
-          return [ {type: "Album", id: user.id } ]
+          // return [ {type: "Album", id: user.id } ]
+          const tags = result.map((album)=>{
+            return { type: "Album", id: album.id }
+          })
+
+          tags.push({ type: "UsersAlbums", id: user.id })
+          return tags;
         },
       }),
       
@@ -38,7 +44,7 @@ export const albumsApi = createApi({
         },
         // invalidatesTags: ["Albums"],  // this way there is no control over whose albums to mark invalidate to get updated data from the server
         invalidatesTags: (result, error, user)=>{
-          return [ { type: "Album", id: user.id } ];
+          return [ { type: "UsersAlbums", id: user.id } ];
         },
       }),
 
@@ -48,6 +54,15 @@ export const albumsApi = createApi({
             url: `/albums/${album.id}`,
             method: "DELETE",
           }
+        },
+        invalidatesTags: (result, error, album) =>{
+          // return [{type: "Album", id: album.userId}] // Note: this will work fine because in this case userId is happened to be stored in the album db
+          // return [{type: "Album", id: user.id}] // we can pass user as a prop in this album component and pass it like removeAlbum({album, user}) and take inside the invalidatesTags like (result, error, {album, user})
+          // but we need to work with the props
+
+          // We need some clever approach to make this happen
+
+          return [{ type: "Album", id: album.id }]
         }
       })
     };
