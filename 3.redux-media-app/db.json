@@ -35,10 +35,6 @@
     {
       "name": "Asha",
       "id": 11
-    },
-    {
-      "name": "Deon",
-      "id": 12
     }
   ],
   "albums": [
@@ -56,11 +52,6 @@
       "userId": 2,
       "title": "Unbranded Rubber Chips",
       "id": 3
-    },
-    {
-      "userId": 9,
-      "title": "Licensed Metal Tuna",
-      "id": 4
     },
     {
       "userId": 7,
@@ -88,19 +79,9 @@
       "id": 9
     },
     {
-      "userId": 9,
-      "title": "Incredible Granite Ball",
-      "id": 10
-    },
-    {
       "userId": 5,
       "title": "Modern Frozen Salad",
       "id": 11
-    },
-    {
-      "userId": 9,
-      "title": "Modern Fresh Keyboard",
-      "id": 12
     },
     {
       "userId": 6,
@@ -111,7 +92,58 @@
       "userId": 10,
       "title": "Small Cotton Shoes",
       "id": 14
+    },
+    {
+      "userId": 8,
+      "title": "Elegant Soft Salad",
+      "id": 15
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": 11,
+      "url": "https://loremflickr.com/150/150/abstract?lock=56680",
+      "id": 1
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=62215",
+      "id": 10
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=99476",
+      "id": 11
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=92780",
+      "id": 12
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=91981",
+      "id": 15
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=20841",
+      "id": 17
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=36101",
+      "id": 19
+    },
+    {
+      "albumId": 1,
+      "url": "https://loremflickr.com/200/200/abstract?lock=54548",
+      "id": 21
+    },
+    {
+      "albumId": 14,
+      "url": "https://loremflickr.com/200/200/abstract?lock=30728",
+      "id": 22
+    }
+  ]
 }

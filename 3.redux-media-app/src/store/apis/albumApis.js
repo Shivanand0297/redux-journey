@@ -70,7 +70,6 @@ export const albumsApi = createApi({
 });
 
 export const { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } = albumsApi; // next we need to connect our store with the automatically reacted reducer
-// to use this api we use albumsApi.useFetchAlbumsQuery()
 
 /***********************************************************************************************************
  * @Steps

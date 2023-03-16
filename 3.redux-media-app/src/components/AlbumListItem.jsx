@@ -7,6 +7,7 @@ import { useRemoveAlbumMutation } from "../store";
 
 // ExpandablePanel component
 import ExpandablePanel from "./ExpandablePanel";
+import PhotosList from "./PhotosList";
 
 const AlbumListItem = ({ album }) => {
   const [removeAlbum, removeAlbumResults] = useRemoveAlbumMutation();
@@ -33,7 +34,7 @@ const AlbumListItem = ({ album }) => {
 
   return (
     <ExpandablePanel header={header} key={album.id}>
-      List of photos
+      <PhotosList album={album} />
     </ExpandablePanel>
   );
 };
