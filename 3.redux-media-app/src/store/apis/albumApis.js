@@ -20,7 +20,7 @@ export const albumsApi = createApi({
             method: "GET",
           };
         },
-        providesTags: (result, error, user)=>{ //arg -> user, this way tags are generated automatically dynamically so that track them by providing id.
+        providesTags: (result, _error, user)=>{ //arg -> user, this way tags are generated automatically dynamically so that track them by providing id.
           // return [ {type: "Album", id: user.id } ]
           const tags = result.map((album)=>{
             return { type: "Album", id: album.id }
@@ -43,7 +43,7 @@ export const albumsApi = createApi({
           }
         },
         // invalidatesTags: ["Albums"],  // this way there is no control over whose albums to mark invalidate to get updated data from the server
-        invalidatesTags: (result, error, user)=>{
+        invalidatesTags: (_result, _error, user)=>{
           return [ { type: "UsersAlbums", id: user.id } ];
         },
       }),
@@ -55,7 +55,7 @@ export const albumsApi = createApi({
             method: "DELETE",
           }
         },
-        invalidatesTags: (result, error, album) =>{
+        invalidatesTags: (_result, _error, album) =>{
           // return [{type: "Album", id: album.userId}] // Note: this will work fine because in this case userId is happened to be stored in the album db
           // return [{type: "Album", id: user.id}] // we can pass user as a prop in this album component and pass it like removeAlbum({album, user}) and take inside the invalidatesTags like (result, error, {album, user})
           // but we need to work with the props
@@ -69,7 +69,7 @@ export const albumsApi = createApi({
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } = albumsApi; // next we need to connect our store with the automatically reacted reducer
+export const { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } = albumsApi; // next we need to connect our store with the automatically created reducer
 
 /***********************************************************************************************************
  * @Steps

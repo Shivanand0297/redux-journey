@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 // async thunk for fetching data
 import { addUser, fetchUsers } from "../store";

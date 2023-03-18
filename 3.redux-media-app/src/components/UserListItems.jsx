@@ -1,5 +1,4 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import {  BiDownArrow } from "react-icons/bi"
 import { GoTrashcan } from "react-icons/go"
 import useThunk from "../hooks/useThunk";
 import { removeUser } from "../store";
