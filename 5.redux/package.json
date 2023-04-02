@@ -1,0 +1,15 @@
+{
+  "name": "5.redux",
+  "version": "1.0.0",
+  "description": "larning redux",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "shiva",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.2.1"
+  }
+}
