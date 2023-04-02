@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Apple 14 Pro",
+      "price": 1500
+    },
+    {
+      "id": 2,
+      "name": "Apple 13 Pro",
+      "price": 1400
+    },
+    {
+      "id": 3,
+      "name": "Apple 11 Pro",
+      "price": 1300
+    },
+    {
+      "id": 4,
+      "name": "Apple 10 Pro",
+      "price": 700
+    }
+  ]
+}
